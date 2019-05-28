@@ -10,7 +10,7 @@ if __name__ == '__main__':
     with open("../result/nbest_predictions.json", "r", encoding="utf-8") as fr:
         data = json.load(fr)
     for key, value in data.items():
-        res = {"answer_text": value, "id": key}
+        res = {"answer_text": value[0]["text"], "id": key}
         result.append(res)
     with open("../result/result.json", 'w') as fr:
         json.dump(result, fr)
